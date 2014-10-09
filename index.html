@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./codebase/webix.css" type="text/css" media="screen" charset="utf-8">
+		<script src="./codebase/webix.js" type="text/javascript" charset="utf-8"></script>
+		<title>Layout</title>
+		
+
+	</head>
+	<body>
+
+<script type="text/javascript" charset="utf-8">
+var menu_data = [
+		{ id:"1",value:"Translate...", submenu:[
+			"English", 
+			{ value:"Slavic...", submenu:[
+				"Belarus", "Russian", "Ukranian"
+			]},
+			"German"
+		]},
+		{ id:"2",value:"Post...", submenu:[ "Facebook", "Google+", "Twitter" ]},
+		{ id:"3",value:"Info" }
+	];
+	var menu = {
+		view:"menu",
+		data: menu_data,
+        css:"blue"
+	};
+	var toolbar = {
+		view:"toolbar", paddingY:0,  elements:[
+			{}, 
+			{ view:"text" },
+			{ view:"button", label:"Search", width:100 }
+		]
+	};
+	var toolbar2={ view:"toolbar", paddingY:0,elements:[
+					{},
+					{ view:"button", type:"icon", icon:"users", label:"人员姓名" ,width:100},
+					{ view:"button", type:"icon", icon:"cog", label:"LOGOUT" ,width:100}
+					]
+				};
+
+	// webix.ui({
+	// 	rows:[
+	// 		{ type:"clean", cols:[ menu, toolbar ] },
+	// 		{ template:"Some content" }
+	// 	]
+	// });
+
+var menu = [{id:1,name:'设备管理',href:'http:www.baidu.com'},{id:2,name:'用户信息',href:'http://www.google.com'}]
+webix.ui({
+        rows:[
+                // {template:"row 1",type:"clean",template:'sdfsdf',height:70,cols:[ menu, toolbar2 ]},
+               { type:"clean", cols:[ {template:'sdfsdf',type:'header'}, toolbar2 ] ,height:50},
+                { // row 3
+					cols:[
+							{header:"功能菜单", body:
+								{
+								view:"list", 
+								width:200,
+								template:"#name#",
+								data:menu 
+								}
+							},
+						
+						{ body:"Content 2" }
+
+						]
+                }
+
+
+            ]
+
+            });
+</script>
+</body>
+</html>
